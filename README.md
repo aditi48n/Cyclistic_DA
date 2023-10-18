@@ -58,7 +58,7 @@ The consistently longer ride durations of casual riders present an opportunity f
 
 There are behavioral differences between Cyclistic's annual members and casual riders particularly with respect to variances in ride frequency, duration, and seasonal preference. Addressing these differences through targeted marketing, tailored subscription plans, and dynamic pricing could not only enhance user satisfaction but also boost the company's revenue by converting casual riders into loyal, annual members. 
 
-Further analysis could also explore geographical usage patterns to optimize bike station locations and address regional demand effectively. Additionally, analyzing yearly data can help understand the seasonality trends more effectively. 
+Further analysis is yet to come which will also explore geographical usage patterns to provide suggestions on optimizing bike station locations and address regional demand effectively. Additionally, I plan to analyze yearly data from 2020-2023 to understand the seasonality trends more effectively. 
 
 
 
