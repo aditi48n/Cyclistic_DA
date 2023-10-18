@@ -1,6 +1,6 @@
 # Analysis of Cyclistic Bike Share Usage: A Comparative Study of bike usage by annual members and casual riders
 
-![]()
+![](Cyclist.png)
 
 Author: Aditi Nagaraj Nallan
 
