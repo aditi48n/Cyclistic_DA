@@ -551,8 +551,8 @@ ggplot(monthly_rides, aes(x = month, y = count, fill = member_casual)) +
   theme_minimal()
 ```
 
-![](Bike_Share_DA_files/figure-gfm/unnamed-chunk-20-1.png)<!-- --> From
-the plot we see that the bike usage among members and casual users is
+![](Bike_Share_DA_files/figure-gfm/unnamed-chunk-20-1.png)<!-- --> 
+From the plot we see that the bike usage among members and casual users is
 increased from January to September, with the months of July and August
 showing the highest usage. It can also be seen that casual users did not
 avail bike service during the winter months of January, February and
