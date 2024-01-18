@@ -11,7 +11,7 @@ library(lubridate)
 library(MetBrewer)
 ```
 
-\##Initial exploration of rider data for September, 2023
+## Initial exploration of rider data for September, 2023
 
 Load the September dataset and check for the structure and datatype:
 
@@ -185,7 +185,7 @@ were taken out from the docks for routine checking:
 September_data = September_data[!(September_data$ride_duration_minutes<0),]
 ```
 
-\##Descriptive Analysis
+## Descriptive Analysis
 
 Now that we have appropriately prepared the data for analysis, let us
 conduct a descriptive analysis:
@@ -291,14 +291,9 @@ Now that we have looked at one month’s trend, let us extrapolate our
 analysis to all months in the year 2023 and see how these trends vary
 across different months-
 
-\##Expansion of analysis across multiple months
+## Expansion of analysis across multiple months
 
-\###Step 1: Data Collection
-
-``` r
-#Load datasets for each month and store it in the corresponding variable
-January_data = read_csv("2023/202301-divvy-tripdata.csv")
-```
+### Step 1: Data Collection
 
     ## Rows: 190301 Columns: 13
     ## ── Column specification ────────────────────────────────────────────────────────
@@ -309,11 +304,6 @@ January_data = read_csv("2023/202301-divvy-tripdata.csv")
     ## 
     ## ℹ Use `spec()` to retrieve the full column specification for this data.
     ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
-
-``` r
-February_data = read_csv("2023/202302-divvy-tripdata.csv")
-```
-
     ## Rows: 190445 Columns: 13
     ## ── Column specification ────────────────────────────────────────────────────────
     ## Delimiter: ","
@@ -323,11 +313,6 @@ February_data = read_csv("2023/202302-divvy-tripdata.csv")
     ## 
     ## ℹ Use `spec()` to retrieve the full column specification for this data.
     ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
-
-``` r
-March_data = read_csv("2023/202303-divvy-tripdata.csv")
-```
-
     ## Rows: 258678 Columns: 13
     ## ── Column specification ────────────────────────────────────────────────────────
     ## Delimiter: ","
@@ -337,11 +322,6 @@ March_data = read_csv("2023/202303-divvy-tripdata.csv")
     ## 
     ## ℹ Use `spec()` to retrieve the full column specification for this data.
     ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
-
-``` r
-April_data = read_csv("2023/202304-divvy-tripdata.csv")
-```
-
     ## Rows: 426590 Columns: 13
     ## ── Column specification ────────────────────────────────────────────────────────
     ## Delimiter: ","
@@ -351,11 +331,6 @@ April_data = read_csv("2023/202304-divvy-tripdata.csv")
     ## 
     ## ℹ Use `spec()` to retrieve the full column specification for this data.
     ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
-
-``` r
-May_data = read_csv("2023/202305-divvy-tripdata.csv")
-```
-
     ## Rows: 604827 Columns: 13
     ## ── Column specification ────────────────────────────────────────────────────────
     ## Delimiter: ","
@@ -365,11 +340,6 @@ May_data = read_csv("2023/202305-divvy-tripdata.csv")
     ## 
     ## ℹ Use `spec()` to retrieve the full column specification for this data.
     ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
-
-``` r
-June_data = read_csv("2023/202306-divvy-tripdata.csv")
-```
-
     ## Rows: 719618 Columns: 13
     ## ── Column specification ────────────────────────────────────────────────────────
     ## Delimiter: ","
@@ -379,11 +349,6 @@ June_data = read_csv("2023/202306-divvy-tripdata.csv")
     ## 
     ## ℹ Use `spec()` to retrieve the full column specification for this data.
     ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
-
-``` r
-July_data = read_csv("2023/202307-divvy-tripdata.csv")
-```
-
     ## Rows: 767650 Columns: 13
     ## ── Column specification ────────────────────────────────────────────────────────
     ## Delimiter: ","
@@ -393,11 +358,6 @@ July_data = read_csv("2023/202307-divvy-tripdata.csv")
     ## 
     ## ℹ Use `spec()` to retrieve the full column specification for this data.
     ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
-
-``` r
-August_data = read_csv("2023/202308-divvy-tripdata.csv")
-```
-
     ## Rows: 771693 Columns: 13
     ## ── Column specification ────────────────────────────────────────────────────────
     ## Delimiter: ","
@@ -407,11 +367,6 @@ August_data = read_csv("2023/202308-divvy-tripdata.csv")
     ## 
     ## ℹ Use `spec()` to retrieve the full column specification for this data.
     ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
-
-``` r
-September_data = read_csv("2023/202309-divvy-tripdata.csv")
-```
-
     ## Rows: 666371 Columns: 13
     ## ── Column specification ────────────────────────────────────────────────────────
     ## Delimiter: ","
@@ -421,36 +376,63 @@ September_data = read_csv("2023/202309-divvy-tripdata.csv")
     ## 
     ## ℹ Use `spec()` to retrieve the full column specification for this data.
     ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+    ## Rows: 537113 Columns: 13
+    ## ── Column specification ────────────────────────────────────────────────────────
+    ## Delimiter: ","
+    ## chr  (7): ride_id, rideable_type, start_station_name, start_station_id, end_...
+    ## dbl  (4): start_lat, start_lng, end_lat, end_lng
+    ## dttm (2): started_at, ended_at
+    ## 
+    ## ℹ Use `spec()` to retrieve the full column specification for this data.
+    ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+    ## Rows: 362518 Columns: 13
+    ## ── Column specification ────────────────────────────────────────────────────────
+    ## Delimiter: ","
+    ## chr  (7): ride_id, rideable_type, start_station_name, start_station_id, end_...
+    ## dbl  (4): start_lat, start_lng, end_lat, end_lng
+    ## dttm (2): started_at, ended_at
+    ## 
+    ## ℹ Use `spec()` to retrieve the full column specification for this data.
+    ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+    ## Rows: 224073 Columns: 13
+    ## ── Column specification ────────────────────────────────────────────────────────
+    ## Delimiter: ","
+    ## chr  (7): ride_id, rideable_type, start_station_name, start_station_id, end_...
+    ## dbl  (4): start_lat, start_lng, end_lat, end_lng
+    ## dttm (2): started_at, ended_at
+    ## 
+    ## ℹ Use `spec()` to retrieve the full column specification for this data.
+    ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 
-\###Step 2: Data Wrangling
+### Step 2: Data Wrangling
 
 ``` r
 #Merge the datasets into one large dataframe and inspect the newly created table 
-all_trips <- bind_rows(January_data, February_data, March_data, April_data, May_data, June_data, July_data, August_data, September_data, .id = "month")
+all_trips <- bind_rows(January_data, February_data, March_data, April_data, May_data, June_data, July_data, August_data, September_data, October_data, November_data, December_data, .id = "month")
 dim(all_trips)
 ```
 
-    ## [1] 4596173      14
+    ## [1] 5719877      14
 
 ``` r
 str(all_trips)
 ```
 
-    ## spc_tbl_ [4,596,173 × 14] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
-    ##  $ month             : chr [1:4596173] "1" "1" "1" "1" ...
-    ##  $ ride_id           : chr [1:4596173] "F96D5A74A3E41399" "13CB7EB698CEDB88" "BD88A2E670661CE5" "C90792D034FED968" ...
-    ##  $ rideable_type     : chr [1:4596173] "electric_bike" "classic_bike" "electric_bike" "classic_bike" ...
-    ##  $ started_at        : POSIXct[1:4596173], format: "2023-01-21 20:05:42" "2023-01-10 15:37:36" ...
-    ##  $ ended_at          : POSIXct[1:4596173], format: "2023-01-21 20:16:33" "2023-01-10 15:46:05" ...
-    ##  $ start_station_name: chr [1:4596173] "Lincoln Ave & Fullerton Ave" "Kimbark Ave & 53rd St" "Western Ave & Lunt Ave" "Kimbark Ave & 53rd St" ...
-    ##  $ start_station_id  : chr [1:4596173] "TA1309000058" "TA1309000037" "RP-005" "TA1309000037" ...
-    ##  $ end_station_name  : chr [1:4596173] "Hampden Ct & Diversey Ave" "Greenwood Ave & 47th St" "Valli Produce - Evanston Plaza" "Greenwood Ave & 47th St" ...
-    ##  $ end_station_id    : chr [1:4596173] "202480.0" "TA1308000002" "599" "TA1308000002" ...
-    ##  $ start_lat         : num [1:4596173] 41.9 41.8 42 41.8 41.8 ...
-    ##  $ start_lng         : num [1:4596173] -87.6 -87.6 -87.7 -87.6 -87.6 ...
-    ##  $ end_lat           : num [1:4596173] 41.9 41.8 42 41.8 41.8 ...
-    ##  $ end_lng           : num [1:4596173] -87.6 -87.6 -87.7 -87.6 -87.6 ...
-    ##  $ member_casual     : chr [1:4596173] "member" "member" "casual" "member" ...
+    ## spc_tbl_ [5,719,877 × 14] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
+    ##  $ month             : chr [1:5719877] "1" "1" "1" "1" ...
+    ##  $ ride_id           : chr [1:5719877] "F96D5A74A3E41399" "13CB7EB698CEDB88" "BD88A2E670661CE5" "C90792D034FED968" ...
+    ##  $ rideable_type     : chr [1:5719877] "electric_bike" "classic_bike" "electric_bike" "classic_bike" ...
+    ##  $ started_at        : POSIXct[1:5719877], format: "2023-01-21 20:05:42" "2023-01-10 15:37:36" ...
+    ##  $ ended_at          : POSIXct[1:5719877], format: "2023-01-21 20:16:33" "2023-01-10 15:46:05" ...
+    ##  $ start_station_name: chr [1:5719877] "Lincoln Ave & Fullerton Ave" "Kimbark Ave & 53rd St" "Western Ave & Lunt Ave" "Kimbark Ave & 53rd St" ...
+    ##  $ start_station_id  : chr [1:5719877] "TA1309000058" "TA1309000037" "RP-005" "TA1309000037" ...
+    ##  $ end_station_name  : chr [1:5719877] "Hampden Ct & Diversey Ave" "Greenwood Ave & 47th St" "Valli Produce - Evanston Plaza" "Greenwood Ave & 47th St" ...
+    ##  $ end_station_id    : chr [1:5719877] "202480.0" "TA1308000002" "599" "TA1308000002" ...
+    ##  $ start_lat         : num [1:5719877] 41.9 41.8 42 41.8 41.8 ...
+    ##  $ start_lng         : num [1:5719877] -87.6 -87.6 -87.7 -87.6 -87.6 ...
+    ##  $ end_lat           : num [1:5719877] 41.9 41.8 42 41.8 41.8 ...
+    ##  $ end_lng           : num [1:5719877] -87.6 -87.6 -87.7 -87.6 -87.6 ...
+    ##  $ member_casual     : chr [1:5719877] "member" "member" "casual" "member" ...
     ##  - attr(*, "spec")=
     ##   .. cols(
     ##   ..   ride_id = col_character(),
@@ -475,15 +457,18 @@ Let’s now ensure that the two columns **started_at** and **ended_at**
 are date_time type to correctly represent the contents of the column.
 
 ``` r
-all_trips$started_at = lubridate::as_datetime(all_trips$started_at)
-all_trips$ended_at = lubridate::as_datetime(all_trips$ended_at)
+convert_to_datetime <- function(date_col) {
+    return(lubridate::as_datetime(date_col))
+}
+all_trips$started_at <- convert_to_datetime(all_trips$started_at)
+all_trips$ended_at <- convert_to_datetime(all_trips$ended_at)
 ```
 
-\###Step 3: Data preparation for analysis
+### Step 3: Data preparation for analysis
 
 ``` r
 #Let us drop the unwanted columns:
-all_trips = subset(all_trips, select = -c(start_station_id, end_station_id, start_lat, start_lng, end_lat, end_lng))
+all_trips = subset(all_trips, select = -c(start_station_id, end_station_id))
 ```
 
 Let us now use the two columns **started_at** and **ended_at** to
@@ -520,20 +505,61 @@ were taken out from the docks for routine checking:
 all_trips = all_trips[!(all_trips$ride_duration_minutes<0),]
 ```
 
-We see that the month column is populated by integers. Let us fix this
-by substituting the month name for the appropriate integer:
+Now, let us check some summary stats for this column:
+
+``` r
+# Summary statistics
+summary(all_trips$ride_duration_minutes)
+```
+
+    ##     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
+    ##     0.00     5.42     9.53    18.19    16.92 98489.07
+
+Lets remove any outliers and plot the column as a box plot:
+
+``` r
+# Removing outliers
+threshold = quantile(all_trips$ride_duration_minutes, 0.99)  # 99th percentile
+all_trips <- all_trips[all_trips$ride_duration_minutes <= threshold, ]
+
+# Boxplot
+ggplot(all_trips, aes(y = ride_duration_minutes)) + geom_boxplot() + theme_minimal()
+```
+
+![](Bike_Share_DA_files/figure-gfm/unnamed-chunk-20-1.png)<!-- -->
+
+Next, We see that the month column is populated by integers. Let us fix
+this by substituting the month name for the appropriate integer:
 
 ``` r
 all_trips$month <- factor(all_trips$month,
-                          levels = 1:9,  # Assuming that your data includes months January through September
-                          labels = c("January", "February", "March", "April", "May", "June", "July", "August", "September"))
+                          levels = 1:12, # Assuming that your data includes months Jan through Dec
+                          labels = c("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"))
 ```
 
-\###Step 4: Data Visualization and Insights
+### Step 4: Data Visualization and Insights
 
 Previously, we performed descriptive analysis to see the trends in data
 for the month of September. Lets now visualize some of these trends in
 the newly created data table:
+
+Let’s check the number of rides between the two groups:
+
+``` r
+# Group by month, possibly also by user type if you want that level of detail
+rides <- all_trips %>%
+  group_by(member_casual) %>%
+  summarise(count = n())
+
+ggplot(rides, aes(x = "", y = count, fill = member_casual)) +
+  geom_bar(stat = "identity", width = 1) +
+  coord_polar(theta = "y") +
+  labs(title = "Bike usage by rider type", fill = "User type") +
+  scale_fill_manual(values=met.brewer("Juarez", 2), name = "User Type") +
+  theme_void() 
+```
+
+![](Bike_Share_DA_files/figure-gfm/unnamed-chunk-22-1.png)<!-- -->
 
 **The number of rides by month**
 
@@ -545,19 +571,55 @@ monthly_rides <- all_trips %>%
 
 # Now, create a plot to visualize monthly trends
 ggplot(monthly_rides, aes(x = month, y = count, fill = member_casual)) +
-  geom_bar(stat = "identity", position = position_dodge()) +
-  labs(title = "Monthly bike usage", x = "Month", y = "Number of Rides") +
+  geom_bar(stat = "identity", position = position_stack()) +
+  labs(title = "Monthly bike usage", x = "Month", y = "Ride count") +
   scale_fill_manual(values=met.brewer("Juarez", 2), name = "User Type") +
+  theme_minimal() + theme(axis.text.x = element_text(angle = 60, vjust = 0.5, hjust=0.5))
+```
+
+![](Bike_Share_DA_files/figure-gfm/unnamed-chunk-23-1.png)<!-- -->
+
+From the plot we see that the bike usage among members and casual users
+follows a bell shaped distribution across the months, with the months of
+July and August showing the highest usage. It can also be seen that
+casual users did not avail as much of the bike service during the winter
+months of January, February, March, November and December. Let us add
+another layer to it and see how bike usage differs across the different
+days of the week for each month.
+
+Let’s now see the trends based on seasonality to confirm our theory:
+
+``` r
+all_trips$started_at <- as.POSIXct(all_trips$started_at, format = "%Y-%m-%d %H:%M:%S")
+all_trips$date <- as.Date(all_trips$started_at)
+
+# Assuming all_trips$started_at is in Date format
+all_trips$season <- ifelse(all_trips$date %in% as.Date('2023-03-01'):as.Date('2023-05-31'), 'Spring',
+                    ifelse(all_trips$date %in% as.Date('2023-06-01'):as.Date('2023-08-31'), 'Summer',
+                    ifelse(all_trips$date %in% as.Date('2023-09-01'):as.Date('2023-11-30'), 'Fall',
+                    'Winter')))
+
+#Aggregate data
+seasonal_rides_by_user_type <- all_trips %>%
+  group_by(season, member_casual) %>%
+  summarise(number_of_rides = n(), .groups = "drop")
+```
+
+``` r
+ggplot(seasonal_rides_by_user_type, aes(x = season, y = member_casual, fill = number_of_rides)) +
+  geom_tile() +
+  labs(title = "Seasonal Heatmap of Bike Usage",
+       x = "Season",
+       y = "User Type") +
+  scale_fill_gradientn(colors = met.brewer("Hokusai2")) +
   theme_minimal()
 ```
 
-![](Bike_Share_DA_files/figure-gfm/unnamed-chunk-20-1.png)<!-- --> 
-From the plot we see that the bike usage among members and casual users is
-increased from January to September, with the months of July and August
-showing the highest usage. It can also be seen that casual users did not
-avail bike service during the winter months of January, February and
-March. Let us add another layer to it and see how bike usage differs
-across the different days of the week for each month.
+![](Bike_Share_DA_files/figure-gfm/unnamed-chunk-25-1.png)<!-- -->
+
+From this plot we can confirm that bike usage peaks during summer and is
+lowest during winter for both user types and follows a similar seasonal
+trend.
 
 **The number of rides by rider type and day of the week**
 
@@ -567,7 +629,6 @@ ggplot(all_trips, aes(x = day_of_week, fill = member_casual)) +
                     labs(title = "Usage counts by User type and Day of the Week", x = "Day of the Week", y = "Count") +
                     scale_fill_manual(values=met.brewer("Juarez", 2), name = "User Type") + 
                     theme_minimal() + 
-                    facet_wrap(~month) +
                     theme(axis.text.x = element_text(angle = 60, hjust = 1))
 ```
 
@@ -576,7 +637,8 @@ ggplot(all_trips, aes(x = day_of_week, fill = member_casual)) +
 From the bar plot above we see that generally members tend to use the
 bike share platform more during the week compared to non-members.
 Non-members use the bike share platform more during the weekends almost
-matching the member usage, with highest usage recorded on Saturdays.
+matching the member usage except for in the winter months, with highest
+usage recorded on Saturdays.
 
 Now let’s see how members and non-members compare in their ride
 duration:
@@ -591,6 +653,45 @@ trips_summary = all_trips %>%
 **Duration of rides by rider type**
 
 ``` r
+ggplot(all_trips, aes(x = member_casual, y = ride_duration_minutes)) +
+    geom_violin() +
+    labs(title = "Violin Plot of Total Ride Durations by User Type",
+         x = "User Type",
+         y = "Ride Duration (Minutes)") +
+    theme_minimal()
+```
+
+![](Bike_Share_DA_files/figure-gfm/unnamed-chunk-27-1.png)<!-- -->
+
+From the plot above we see that the distribution for both user types is
+similar at the lower end, which suggests that shorter rides were common
+among all users.Longer ride durations were seen more among casual riders
+as evidenced by the thicker longer tail. Let’s check the average ride
+length:
+
+``` r
+average_ride_length <- all_trips %>%
+  group_by(member_casual) %>%
+  summarise(average_length = mean(ride_duration_minutes))
+
+ggplot(average_ride_length, aes(x = member_casual, y = average_length, fill = member_casual)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Average Ride Length by User Type",
+       x = "User Type",
+       y = "Average Ride Length (minutes)") +
+  scale_fill_manual(values=met.brewer("Juarez", 2), name = "User Type") +
+  theme_minimal()
+```
+
+![](Bike_Share_DA_files/figure-gfm/unnamed-chunk-28-1.png)<!-- -->
+
+We see that the average ride length for casual riders is higher than for
+members. Let us now see how this compares across various days of the
+week.
+
+**Average duration of rides by rider type and Day of the week**
+
+``` r
 ggplot(trips_summary, aes(x = member_casual, y = total_duration, fill = day_of_week)) +
   geom_bar(stat = "identity", position = "dodge") +  
   labs(title = "Usage duration by user type", x = "User Type", y = "Average ride duration in minutes") +
@@ -601,7 +702,7 @@ ggplot(trips_summary, aes(x = member_casual, y = total_duration, fill = day_of_w
   theme(panel.border = element_rect(colour = "grey", fill=NA))
 ```
 
-![](Bike_Share_DA_files/figure-gfm/unnamed-chunk-22-1.png)<!-- -->
+![](Bike_Share_DA_files/figure-gfm/unnamed-chunk-29-1.png)<!-- -->
 
 From the grouped bar chart we see that the average ride duration is
 higher for non-members across all days of the week.
@@ -632,24 +733,28 @@ hourly_rides = all_trips %>%
 ``` r
 custom_hour_labels = c("12:00 AM", "4:00 AM", "8:00 AM", "12:00 PM", "4:00 PM", "8:00 PM")
 
-ggplot(hourly_rides, aes(x = start_hour, y = count, color = member_casual)) +
-  geom_line() +
+ggplot(hourly_rides, aes(x = start_hour, y = count, fill = member_casual)) +
+  geom_area(alpha = 0.1, position = position_dodge(width = 0.8)) +  
+  geom_line(aes(color = member_casual)) +  
+  scale_fill_manual(values = met.brewer("Juarez", 2)) +  
+  scale_color_manual(values = met.brewer("Juarez", 2), name = "User Type") +  
   labs(title = "Hourly bike usage", x = "Hour of the Day", y = "Number of Rides") +
-  scale_color_manual(values=met.brewer("Juarez", 2), name = "User Type") +
-  theme_minimal() + 
+  theme_minimal() +
   scale_x_continuous(
-    breaks = seq(0, 23, by = 4),  
+    breaks = seq(0, 23, by = 4),
     labels = custom_hour_labels)
 ```
 
-![](Bike_Share_DA_files/figure-gfm/unnamed-chunk-24-1.png)<!-- -->
+    ## Warning: `position_dodge()` requires non-overlapping x intervals
+
+![](Bike_Share_DA_files/figure-gfm/unnamed-chunk-31-1.png)<!-- -->
 
 From the line plot we see that members tend to use the bike service
 typically during rush hours that is around 8:00 AM in the morning and
 4:30PM in the evening! Non-members tend to use the bike more during the
 later part of the day.
 
-Let us now compare this trends across weekdays and weekends.
+Let us now compare this trend across weedays and weekends.
 
 **Hourly bike usage based on day type**
 
@@ -678,7 +783,119 @@ ggplot(daily_rides, aes(x = start_hour, y = count, color = member_casual)) +
     labels = custom_hour_labels)
 ```
 
-![](Bike_Share_DA_files/figure-gfm/unnamed-chunk-25-1.png)<!-- -->
+![](Bike_Share_DA_files/figure-gfm/unnamed-chunk-32-1.png)<!-- -->
 
 From the plot above we see that bike usage trends on the weekends are
-similar for both members and casual users.
+similar for both members and casual users and as for weekdays, members
+tend to use it more and during rush hours while casual riders use it
+more during the later part of the day.
+
+Now let’s assess how bike type affects these trends. Let’s start by
+plotting the number of rides by bike type.
+
+``` r
+bike_type_counts <- all_trips %>%
+  group_by(rideable_type) %>%
+  summarise(number_of_rides = n()) %>%
+  mutate(percentage = number_of_rides / sum(number_of_rides) * 100)
+
+ggplot(bike_type_counts, aes(x = "", y = number_of_rides, fill = rideable_type)) +
+  geom_bar(stat = "identity", width = 1) +
+  coord_polar(theta = "y") +
+  scale_fill_manual(values=met.brewer("OKeeffe2", 3), name = "Bike Type") +
+  labs(fill = "Bike Type", 
+       title = "Number of Rides by Bike Type") + 
+  geom_text(aes(label = sprintf("%.1f%%", percentage)),
+            position = position_stack(vjust = 0.5)) +
+  theme_void()
+```
+
+![](Bike_Share_DA_files/figure-gfm/unnamed-chunk-33-1.png)<!-- -->
+
+From the chart we see that most users (52%) prefer to ride electric
+bikes. Let us now see how this distribution is across user type.
+
+``` r
+ride_counts <- all_trips %>%
+  group_by(rideable_type, member_casual) %>%
+  summarise(number_of_rides = n(), .groups = "drop")
+
+ggplot(ride_counts, aes(x = rideable_type, y = number_of_rides, fill = member_casual)) +
+  geom_bar(stat = "identity", position = position_dodge()) +
+  scale_fill_manual(values=met.brewer("Juarez", 2), name = "User Type") + 
+  labs(title = "Number of Rides by Rideable Type and User Type",
+       x = "Rideable Type",
+       y = "Number of Rides",
+       fill = "User Type") +
+  theme_minimal()
+```
+
+![](Bike_Share_DA_files/figure-gfm/unnamed-chunk-34-1.png)<!-- -->
+
+Electric bikes are a popular choice especially among casual riders while
+classical bikes are more popular among members.
+
+``` r
+#Aggregate data
+monthly_rides <- all_trips %>%
+  group_by(month, rideable_type) %>%
+  summarise(count = n(), .groups = 'drop')
+
+ggplot(monthly_rides, aes(x = month, y = count, fill = rideable_type, group = rideable_type)) + geom_area(position = 'stack', alpha = 0.8) +  
+  labs(title = "Seasonal trends in bike ride types",
+       x = "Month",
+       y = "Number of Rides") +
+  scale_fill_manual(values=met.brewer("Archambault", 3), name = "Ride Type") +  
+  theme_minimal() + theme(axis.text.x = element_text(angle = 60, hjust = 1))
+```
+
+![](Bike_Share_DA_files/figure-gfm/unnamed-chunk-35-1.png)<!-- -->
+
+### Key Findings:
+
+From this analysis, we found patterns that indicate:
+
+Casual riders use the bikes more leisurely than members who tend to use
+the bikes for routine commutes.
+
+The average ride length for casual riders is longer than members, but,
+member have more rides compared to casual riders.
+
+There is a correlation between the seasons of the year and rider
+behavior. The average number of rides increased during the summer months
+and declined during the winter months. Bike usage peaked in July and
+August.
+
+In a day, members tend to use the bikes more during rush hours while
+casual riders tend to use it more in later hours of the day.
+
+It was seen that electric bikes were more popular among both types of
+users. However, proportionally casual users are more inclined to use
+electric bikes than the members who showed almost equal preference for
+classic and electric bikes.
+
+The pattern of electric-classic bike usage differs throughout the year
+with classical bikes being used more in summer months and electric bikes
+being used more during fall and winter months.
+
+### Recommendations
+
+Since casual riders are already familiar with the Cyclistic bike share
+program and have experience with it, they would be an easy target.
+
+Given that casual riders use the bikes more on the weekends and for
+longer durations, increasing free usage to a longer time or offering
+bonuses/discounts for longer rides can boost annual subscription rates.
+Additionally, initiating a promotional pricing campaign in summer,
+offering discounts for annual subscriptions can attract more customers.
+Ensuring constant availability of electric bikes can also help in this
+scenario. Lastly, First month free campaigns can encourage more casual
+riders to subscribe.
+
+### Further analysis
+
+Data on type of pass used by casual riders can help decide the pricing
+startegies. Demographic information can efficiently help target people
+who are more likely going to subscribe to the program. Spatial analysis
+can be conducted to check what are the most popular bike stations among
+users!
