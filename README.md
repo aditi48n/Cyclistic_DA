@@ -29,17 +29,17 @@ The initial exploration of September revealed key differences in the behavior of
 ### Ride Volume Analysis
 A visual representation of the monthly ride counts highlighted the seasonality in bike usage. There was an evident increase in the number of rides during the warmer months, peaking in July and August. Interestingly, casual riders showed minimal activity during colder months, suggesting a preference for more favorable weather conditions. A higher activity in warmer months could also be an indication of tourist influx and majority of the casual riders being tourists to the city during these months. 
 
-![](Bike_Share_DA_files/figure-gfm/unnamed-chunk-20-1.png)
+![](Bike_Share_DA_files/figure-gfm/unnamed-chunk-23-1.png)
 
 ### Comparative Usage Patterns
 The weekly analysis accentuated distinct patterns between members and casual riders. While members consistently used the service throughout the week, casual riders were predominantly active during weekends, especially on Saturdays. This insight could indicate differing motivations, such as commuting to work (members) versus leisure (casual riders).
 
-![](Bike_Share_DA_files/figure-gfm/viz1-1.png)
+![](Bike_Share_DA_files/figure-gfm/unnamed-chunk-29-1.png)
 
 ### Duration of Rides
 In alignment with our initial findings, casual riders consistently had longer ride durations across all days of the week. This consistent behavior was also observed throughout the year and underscores a fundamental difference in the usage pattern between the two user groups. While members might be utilizing the service for regular, shorter trips (potentially including commuting), casual riders seem to engage with the service more sporadically and for extended periods, possibly for leisurely exploration or less frequent, planned outings.
 
-![](Bike_Share_DA_files/figure-gfm/unnamed-chunk-22-1.png)
+![](Bike_Share_DA_files/figure-gfm/unnamed-chunk-27-1.png)
 
 
 ## Key Findings and Recommendations
